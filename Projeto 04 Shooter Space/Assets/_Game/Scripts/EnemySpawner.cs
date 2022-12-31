@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach(Transform child in this.transform)
         {
-            if(child.childCount == 0)
+            if(child.childCount == 0) //Se a posição não tiver nenhum inimigo
             {
                 return child;
             }
