@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
+    private FlashEffect flashEffect;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        flashEffect = this.gameObject.GetComponent<FlashEffect>();
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         if(target.gameObject.CompareTag("PlayerProjectile"))
         {
             health -= target.gameObject.GetComponent<Projectile>().damage;
+            flashEffect.Flash();
 
             if(health <= 0)
             {
