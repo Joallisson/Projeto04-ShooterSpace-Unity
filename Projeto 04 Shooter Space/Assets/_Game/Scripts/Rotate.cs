@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class Rotate : MonoBehaviour
 {
-    public bool shootManual, shootAutomatic;
-    public float rotatePartsSpeed;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward * (gameController.rotatePartsSpeed * Time.deltaTime));
     }
 }

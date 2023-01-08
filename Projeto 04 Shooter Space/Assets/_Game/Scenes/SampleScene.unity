@@ -818,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655883495}
   - component: {fileID: 1655883494}
+  - component: {fileID: 1655883496}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -839,6 +840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootManual: 1
   shootAutomatic: 0
+  rotatePartsSpeed: 100
 --- !u!4 &1655883495
 Transform:
   m_ObjectHideFlags: 0
@@ -854,6 +856,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655883496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655883493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88301187c8982d4d9891e267badef4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parts:
+  - {fileID: 876918006489868105, guid: f6ac713d930e2c04f9de39d8a489411b, type: 3}
+  - {fileID: 6140998252517140370, guid: 880d1932b56396f4e910b1c4118a6ce6, type: 3}
+  - {fileID: 1182247834795569310, guid: b92ced65547f6e34db141c97fc6f98f3, type: 3}
+  - {fileID: 1999912074536466367, guid: e5aad47c346d8dc43ae8c2f3cedb9af9, type: 3}
+  - {fileID: 7365388059419179629, guid: ea7ac48a1ddc88a49847c3f426bff3ea, type: 3}
+  minForce: -1.5
+  maxForce: 1.5
 --- !u!1 &1802379415
 GameObject:
   m_ObjectHideFlags: 0
