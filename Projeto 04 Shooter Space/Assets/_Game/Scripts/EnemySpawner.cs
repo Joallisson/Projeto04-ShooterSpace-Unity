@@ -75,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnUntilFull()
+    public void SpawnUntilFull()
     {
         Transform availablePosition = NextFreePosition();
 

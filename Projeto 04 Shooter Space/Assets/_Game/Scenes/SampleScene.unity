@@ -841,6 +841,8 @@ MonoBehaviour:
   shootManual: 1
   shootAutomatic: 0
   rotatePartsSpeed: 100
+  enemyCount: 0
+  maxEnemies: 6
 --- !u!4 &1655883495
 Transform:
   m_ObjectHideFlags: 0
