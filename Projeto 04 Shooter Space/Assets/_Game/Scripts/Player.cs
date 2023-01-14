@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float firingRate;
     private float timeToShoot;
     private GameController gameController;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -39,4 +40,12 @@ public class Player : MonoBehaviour
             return;
          }
     }
+
+    public void PlayerDeath()
+    {
+        Explosion explosion = gameController.gameObject.GetComponent<Explosion>();
+        explosion.Explode(this.transform);
+        this.gameObject.SetActive(false);
+    }
+
 }
