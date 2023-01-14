@@ -10,9 +10,9 @@ public class GameController : MonoBehaviour
     public int maxEnemies;
     private UIController uIController;
     private Player player;
-    private Color32 greenColorHealth = new Color32(0, 128, 0, 0),
-                    orangeColorHealth = new Color32(255, 165, 0, 0),
-                    redColorHealth = new Color32(255, 0, 0, 0);
+    private Color32 greenColorHealth = new Color32(0, 128, 0, 255),
+                    orangeColorHealth = new Color32(255, 165, 0, 255),
+                    redColorHealth = new Color32(255, 0, 0, 255);
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +32,16 @@ public class GameController : MonoBehaviour
 
     public void ChangeColorSliderHealth()
     {
-        if(player.health < (player.maxHealth / 50))
+        UnityEngine.UI.Image fill = uIController.sliderPlayerHealth.transform.Find("Fill Area").GetComponentInChildren<UnityEngine.UI.Image>();
+
+        if(player.health <= (player.maxHealth / player.maxHealth) * 25)
         {
-            uIController.sliderPlayerHealth.transform.Find("Fill").GetComponent<UnityEngine.UI.Image>().color = orangeColorHealth;
+            fill.color = redColorHealth;
         }
 
-        if (player.health < (player.maxHealth / 25))
+        if (player.health >= (player.maxHealth / player.maxHealth) * 50 && player.health <= (player.maxHealth / player.maxHealth) * 70)
         {
-            uIController.sliderPlayerHealth.transform.Find("Fill").GetComponent<UnityEngine.UI.Image>().color = redColorHealth;
+            fill.color = orangeColorHealth;
         }
     }
 }

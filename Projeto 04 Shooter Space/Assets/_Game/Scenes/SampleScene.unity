@@ -440,8 +440,8 @@ MonoBehaviour:
   laserPrefab: {fileID: 4360424901848285839, guid: 8b3961faf2e49134b996d8db79f62459, type: 3}
   spawnProjectilePosition: {fileID: 202257371}
   firingRate: 0.25
-  health: 100
-  maxHealth: 0
+  health: 0
+  maxHealth: 100
 --- !u!114 &477211368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.04401779, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5019608, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cab710f9215b504a988ead842179c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPlayerHealth: {fileID: 0}
+  sliderPlayerHealth: {fileID: 205825023}
 --- !u!4 &2117483911
 Transform:
   m_ObjectHideFlags: 0
