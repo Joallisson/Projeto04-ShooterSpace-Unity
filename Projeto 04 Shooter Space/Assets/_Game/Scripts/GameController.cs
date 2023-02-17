@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public bool shootManual, shootAutomatic;
-    public float rotatePartsSpeed;
+    public float rotatePartsSpeed, playerShieldDuration;
     [HideInInspector] public int enemyCount;
     public int maxEnemies;
     private UIController uIController;
