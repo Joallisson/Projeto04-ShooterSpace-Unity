@@ -8,6 +8,8 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - Shield
+  - ItemShield
+  - ItemHealth
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - Shield
-  - 
-  - 
+  - ItemShield
+  - ItemHealth
   - 
   - 
   - 
