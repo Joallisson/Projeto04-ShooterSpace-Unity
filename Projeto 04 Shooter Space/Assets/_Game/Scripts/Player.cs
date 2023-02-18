@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float timeToShoot, playerShieldDuration;
     private GameController gameController;
     public int health, maxHealth;
-    [SerializeField] private GameObject shield;
+    private GameObject shield;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        InvokePlayerShield();
+        
     }
 
     // Update is called once per frame
@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
 
         if(playerShieldDuration > 0)
         {
-            Debug.Log(playerShieldDuration);
             shield.gameObject.SetActive(true);
             this.transform.GetComponent<CircleCollider2D>().enabled = false;
         }
