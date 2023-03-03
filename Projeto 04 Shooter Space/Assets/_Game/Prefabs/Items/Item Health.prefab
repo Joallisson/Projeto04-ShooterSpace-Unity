@@ -94,6 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 468487475945453790}
   - component: {fileID: 692436536659805504}
+  - component: {fileID: 5901481467970179550}
+  - component: {fileID: -183442846420183983}
   m_Layer: 12
   m_Name: Item Health
   m_TagString: ItemHealth
@@ -133,3 +135,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!114 &5901481467970179550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334845003091746736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8393fa09636ee845bd757b23482d6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-183442846420183983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334845003091746736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d870a627ebe329842ab7c14a1c9ce2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
