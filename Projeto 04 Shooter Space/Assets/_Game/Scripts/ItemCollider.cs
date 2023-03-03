@@ -26,7 +26,7 @@ public class ItemCollider : MonoBehaviour
         {
             if (target.gameObject.CompareTag("Shield") || target.gameObject.CompareTag("Player"))
             {
-                itemController.ItemShield(target);
+                itemController.ItemHealth();
                 Destroy(this.gameObject);
             }
         }
