@@ -1293,7 +1293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1145389991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1668,6 +1668,7 @@ MonoBehaviour:
   items:
   - {fileID: 6334845003091746736, guid: 1907a987e03f31645a4b36876a436bad, type: 3}
   - {fileID: 1006368554831066447, guid: da8a5b9ef3b134147a140ce961d9579d, type: 3}
+  currentScore: 0
 --- !u!4 &1655883495
 Transform:
   m_ObjectHideFlags: 0
@@ -2507,6 +2508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderPlayerHealth: {fileID: 205825023}
+  txtScore: {fileID: 1876509105}
 --- !u!4 &2117483911
 Transform:
   m_ObjectHideFlags: 0
