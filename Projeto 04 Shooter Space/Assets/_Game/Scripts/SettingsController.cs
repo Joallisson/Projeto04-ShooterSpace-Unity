@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SettingsController : MonoBehaviour
 {
-    
-    private static SceneController instance;
-    
+    private static SettingsController instance;
+    public bool soundOnOff;
+
     private void Awake()
     {
-       MakePersistent();
+        MakePersistent();
     }
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("teste >>>>>>>>>>>>>>>>>>>>>");
+        
     }
 
     // Update is called once per frame
@@ -25,12 +23,6 @@ public class SceneController : MonoBehaviour
     {
         
     }
-
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
 
     private void MakePersistent()
     {
@@ -40,11 +32,21 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            Debug.Log("ESSE OBJETO ESTÁ SENDO DESTRUÍDO");
             Destroy(this.gameObject);
         }
 
         DontDestroyOnLoad(this);
     }
 
+    public void SoundOnOff()
+    {
+        if(!soundOnOff)
+        {
+            soundOnOff = true;
+        }
+        else if(soundOnOff)
+        {
+            soundOnOff = false;
+        }
+    }
 }

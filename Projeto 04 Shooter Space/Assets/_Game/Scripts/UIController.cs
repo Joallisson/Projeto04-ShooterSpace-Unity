@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
     public Slider sliderPlayerHealth;
     private GameController gameController;
     [SerializeField] private TMP_Text txtScore;
+    [SerializeField] private GameObject panelPause, panelGame;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +28,32 @@ public class UIController : MonoBehaviour
     public void UpdateScore()
     {
         txtScore.text = "Score: " + gameController.currentScore.ToString();
+    }
+
+    public void ButtonOpenPanelPause()
+    {
+        panelPause.gameObject.SetActive(true);
+        panelGame.gameObject.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    public void ButtonClosePanelPause()
+    {
+        panelPause.gameObject.SetActive(false);
+        panelGame.gameObject.SetActive(true);
+        Time.timeScale = 1f;
+    }
+
+    public void ButtonBackMainMenu(string sceneName)
+    {
+        Time.timeScale = 1f;
+        SceneController sceneController = FindObjectOfType<SceneController>();
+        sceneController.LoadScene(sceneName);
+    }
+
+    public void ButtonSound()
+    {
+        SettingsController settingsController = FindObjectOfType<SettingsController>();
+        settingsController.SoundOnOff();
     }
 }
