@@ -13,10 +13,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject[] items;
     private Color32 greenColorHealth = new Color32(0, 128, 0, 255), orangeColorHealth = new Color32(255, 165, 0, 255), redColorHealth = new Color32(255, 0, 0, 255);
     [HideInInspector] public int currentScore;
+    [HideInInspector] public bool gameover;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameover = false;
         currentScore = 0;
         enemyCount = maxEnemies;
         uIController = FindObjectOfType<UIController>();
@@ -62,5 +64,31 @@ public class GameController : MonoBehaviour
         {
             GameObject gameItem = Instantiate(items[Random.Range(0, items.Length)], enemy.transform.position, Quaternion.identity);
         }
+    }
+
+    public void GameOver()
+    {
+        gameover = true;
+        player.gameObject.SetActive(false);
+        player.health = 0;
+        StartCoroutine(RestartDelay());
+    }
+
+    public void RestartGame()
+    {
+        gameover = false;
+        player.gameObject.SetActive(true);
+        player.health = player.maxHealth;
+        uIController.sliderPlayerHealth.value = player.health;
+        currentScore = 0;
+        uIController.txtScore.text = "Score: " + currentScore.ToString();
+        UnityEngine.UI.Image fill = uIController.sliderPlayerHealth.transform.Find("Fill Area").GetComponentInChildren<UnityEngine.UI.Image>();
+        fill.color = greenColorHealth;
+    }
+
+    public IEnumerator RestartDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        RestartGame();
     }
 }

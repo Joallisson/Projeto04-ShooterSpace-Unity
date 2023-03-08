@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
 
     public void PlayerDeath()
     {
+        gameController.GameOver();
         this.gameController.GetComponent<AudioSource>().clip = deathAudio;
         this.gameController.GetComponent<AudioSource>().Play();
         Explosion explosion = gameController.gameObject.GetComponent<Explosion>();
