@@ -40,7 +40,6 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            Debug.Log("ESSE OBJETO ESTÁ SENDO DESTRUÍDO");
             Destroy(this.gameObject);
         }
 

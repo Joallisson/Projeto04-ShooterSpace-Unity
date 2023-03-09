@@ -44,8 +44,11 @@ public class UIControllerMainMenu : MonoBehaviour
 
     private void ExitGameBackAndroidButton()
     {
-        AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
-        activity.Call<bool>("moveTaskToBack", true);
-        System.Diagnostics.Process.GetCurrentProcess().Kill();
+        if (Input.GetKeyUp(KeyCode.Escape) && Application.platform == RuntimePlatform.Android)
+        {
+            AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+            activity.Call<bool>("moveTaskToBack", true);
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
     }
 }
