@@ -41,6 +41,9 @@ public class UIController : MonoBehaviour
     {
         panelPause.gameObject.SetActive(false);
         panelGame.gameObject.SetActive(true);
+        GameData gameData = FindObjectOfType<GameData>();
+        SettingsController settingsController = FindObjectOfType<SettingsController>();
+        gameData.SaveSounds(settingsController.soundOnOff);
         Time.timeScale = 1f;
     }
 
