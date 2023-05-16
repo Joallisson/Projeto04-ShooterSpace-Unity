@@ -12,9 +12,9 @@ public class UIControllerMainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonStart.interactable = false;
-        imageFade.gameObject.SetActive(true);
-        imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
+        buttonStart.interactable = true;
+        imageFade.gameObject.SetActive(false);
+        //imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
     // Update is called once per frame
@@ -40,9 +40,9 @@ public class UIControllerMainMenu : MonoBehaviour
 
     public void ButtonStartGame()
     {
-        buttonStart.interactable = false;
-        imageFade.gameObject.SetActive(true);
-        imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
+       buttonStart.interactable = false;
+       imageFade.gameObject.SetActive(true);
+       imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
     public void ButtonSound()
