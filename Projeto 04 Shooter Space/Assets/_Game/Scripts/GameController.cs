@@ -82,6 +82,12 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        uIController.imageFade.gameObject.SetActive(true);
+        uIController.imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
+    }
+
+    public void RestartGameplay()
+    {
         gameover = false;
         player.gameObject.SetActive(true);
         player.health = player.maxHealth;

@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     private GameController gameController;
     public TMP_Text txtScore;
     [SerializeField] private GameObject panelPause, panelGame;
+    public Image imageFade;
 
     // Start is called before the first frame update
     void Start()

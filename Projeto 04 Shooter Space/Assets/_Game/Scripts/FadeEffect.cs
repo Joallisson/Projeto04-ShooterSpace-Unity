@@ -17,6 +17,10 @@ public class FadeEffect : MonoBehaviour
                 break;
 
             case "Game":
+                UIController uIController = FindObjectOfType<UIController>();
+                uIController.imageFade.GetComponent<Animator>().SetTrigger("FadeOut");
+                GameController gameController = FindObjectOfType<GameController>();
+                gameController.RestartGameplay();
                 break;
         }
     }
