@@ -7,12 +7,10 @@ public class UIControllerMainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panelSettings, panelOptions;
     public Image imageFade;
-    [SerializeField] private Button buttonStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        buttonStart.interactable = true;
         imageFade.gameObject.SetActive(false);
         //imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
     }
@@ -40,7 +38,6 @@ public class UIControllerMainMenu : MonoBehaviour
 
     public void ButtonStartGame()
     {
-       buttonStart.interactable = false;
        imageFade.gameObject.SetActive(true);
        imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
     }

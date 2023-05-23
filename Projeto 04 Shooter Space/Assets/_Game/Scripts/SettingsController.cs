@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SettingsController : MonoBehaviour
 {
-    private static SettingsController instance;
     public bool soundOnOff;
 
     private void Awake()
     {
-        MakePersistent();
+
     }
 
     // Start is called before the first frame update
@@ -22,20 +21,6 @@ public class SettingsController : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void MakePersistent()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
-        DontDestroyOnLoad(this);
     }
 
     public void SoundOnOff()
