@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f556750eb421d9242aed41eabe229a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 1339442857}
 --- !u!1 &292697898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highscore: 0
+  soundOnOff: 0
 --- !u!4 &1072207347
 Transform:
   m_ObjectHideFlags: 0
@@ -1958,7 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d15a61cb9c5a141ada235c69922f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundOnOff: 0
 --- !u!4 &1655087882
 Transform:
   m_ObjectHideFlags: 0

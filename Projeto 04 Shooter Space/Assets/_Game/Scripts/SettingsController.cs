@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class SettingsController : MonoBehaviour
 {
-    public bool soundOnOff;
+    private GameData gameData;
+    private MainMenu mainMenu;
+
 
     private void Awake()
     {
-
+        gameData = FindObjectOfType<GameData>();
+        mainMenu = FindObjectOfType<MainMenu>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainMenu.music.mute = !gameData.soundOnOff;
     }
 
     // Update is called once per frame
@@ -25,13 +28,15 @@ public class SettingsController : MonoBehaviour
 
     public void SoundOnOff()
     {
-        if(!soundOnOff)
+        if(!gameData.soundOnOff)
         {
-            soundOnOff = true;
+            gameData.soundOnOff = true;
+            mainMenu.music.mute = false;
         }
-        else if(soundOnOff)
+        else if(gameData.soundOnOff)
         {
-            soundOnOff = false;
+            gameData.soundOnOff = false;
+            mainMenu.music.mute = true;
         }
     }
 }
