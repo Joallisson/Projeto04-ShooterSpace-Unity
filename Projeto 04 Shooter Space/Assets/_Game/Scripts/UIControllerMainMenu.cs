@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIControllerMainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panelSettings, panelOptions;
     public Image imageFade;
+    [SerializeField] private TMP_Text txtHighscore;
 
     // Start is called before the first frame update
     void Start()
     {
-        imageFade.gameObject.SetActive(false);
-        //imageFade.gameObject.GetComponent<Animator>().SetTrigger("FadeIn");
+        GameData gameData = FindObjectOfType<GameData>();
+        txtHighscore.text = "Highscore: " + gameData.GetScore().ToString();
     }
 
     // Update is called once per frame
