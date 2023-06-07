@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class Player : MonoBehaviour
     private GameController gameController;
     public int health, maxHealth;
     private GameObject shield;
-    [SerializeField] private AudioClip deathAudio;
 
     // Start is called before the first frame update
     void Awake()
@@ -59,13 +59,13 @@ public class Player : MonoBehaviour
     {
         timeToShoot += Time.deltaTime;
 
-         if(gameController.shootManual && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && timeToShoot >= firingRate) //Disparo Manual
+         if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && gameController.shootManual && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && timeToShoot >= firingRate) //Disparo Manual
          {
             GameObject tempProjectile = Instantiate(laserPrefab, spawnProjectilePosition.position, Quaternion.identity) as GameObject;
             timeToShoot = 0f;
             return;
          }
-         else if(gameController.shootAutomatic && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary && timeToShoot >= firingRate) //Disparo Automático
+         else if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && gameController.shootAutomatic && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary && timeToShoot >= firingRate) //Disparo Automático
          {
             GameObject tempProjectile = Instantiate(laserPrefab, spawnProjectilePosition.position, Quaternion.identity) as GameObject;
             timeToShoot = 0f;
@@ -76,8 +76,6 @@ public class Player : MonoBehaviour
     public void PlayerDeath()
     {
         gameController.GameOver();
-        this.gameController.GetComponent<AudioSource>().clip = deathAudio;
-        this.gameController.GetComponent<AudioSource>().Play();
         Explosion explosion = gameController.gameObject.GetComponent<Explosion>();
         explosion.Explode(this.transform);
         this.gameObject.SetActive(false);

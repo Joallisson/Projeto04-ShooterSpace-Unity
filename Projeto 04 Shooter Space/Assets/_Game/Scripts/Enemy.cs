@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float startInvokeShoot, minShootValue, maxShootValue;
     private GameController gameController;
     private EnemySpawner enemySpawner;
-    [SerializeField] private AudioClip deathAudio;
+
     [SerializeField] private int pointValue;
     private UIController uIController;
 
@@ -52,8 +52,6 @@ public class Enemy : MonoBehaviour
 
             if(health <= 0)
             {
-                this.gameObject.GetComponent<AudioSource>().clip = deathAudio;
-                this.gameObject.GetComponent<AudioSource>().Play();
                 gameController.CreateItem(this.transform);
                 explosion.Explode(this.transform);
                 Destroy(this.gameObject);
