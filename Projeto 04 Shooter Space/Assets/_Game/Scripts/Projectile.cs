@@ -10,7 +10,20 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        GameData gameData = FindObjectOfType<GameData>();
+        GameController gameController = FindObjectOfType<GameController>();
+
+        this.transform.parent = gameController.allProjectiles;
+
+        if(!gameData.soundOnOff)
+        {
+            this.gameObject.GetComponent<AudioSource>().mute = true;
+        }
     }
 
     // Update is called once per frame

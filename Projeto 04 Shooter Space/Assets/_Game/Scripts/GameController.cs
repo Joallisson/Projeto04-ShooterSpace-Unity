@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private Color32 greenColorHealth = new Color32(0, 128, 0, 255), orangeColorHealth = new Color32(255, 165, 0, 255), redColorHealth = new Color32(255, 0, 0, 255);
     [HideInInspector] public int currentScore;
     [HideInInspector] public bool gameover;
+    public Transform allProjectiles, allParts;
 
     // Start is called before the first frame update
     void Start()
