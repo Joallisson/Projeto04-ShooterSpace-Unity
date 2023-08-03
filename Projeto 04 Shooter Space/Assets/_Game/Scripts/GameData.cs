@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     [HideInInspector] public int highscore;
-    [HideInInspector] public bool soundOnOff;
+    [HideInInspector] public bool soundOnOff, shootStyle;
 
     private void Awake()
     {

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private GameController gameController;
     public int health, maxHealth;
     private GameObject shield;
+    GameData gameData;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
         health = maxHealth;
         shield = this.transform.Find("Shield").gameObject;
         playerShieldDuration = gameController.playerShieldDuration;
+        gameData = FindObjectOfType<GameData>();
     }
 
     private void Start()
@@ -59,13 +61,13 @@ public class Player : MonoBehaviour
     {
         timeToShoot += Time.deltaTime;
 
-         if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && gameController.shootManual && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && timeToShoot >= firingRate) //Disparo Manual
+         if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && !gameData.shootStyle && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && timeToShoot >= firingRate) //Disparo Manual
          {
             GameObject tempProjectile = Instantiate(laserPrefab, spawnProjectilePosition.position, Quaternion.identity) as GameObject;
             timeToShoot = 0f;
             return;
          }
-         else if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && gameController.shootAutomatic && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary && timeToShoot >= firingRate) //Disparo Automático
+         else if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && gameData.shootStyle && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary && timeToShoot >= firingRate) //Disparo Automático
          {
             GameObject tempProjectile = Instantiate(laserPrefab, spawnProjectilePosition.position, Quaternion.identity) as GameObject;
             timeToShoot = 0f;

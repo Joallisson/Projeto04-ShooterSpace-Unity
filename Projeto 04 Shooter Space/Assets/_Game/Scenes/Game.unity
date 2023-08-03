@@ -208,7 +208,19 @@ MonoBehaviour:
   m_Group: {fileID: 1129943126}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117483910}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ToggleShootStyle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &79007472
 GameObject:
@@ -1382,7 +1394,19 @@ MonoBehaviour:
   m_Group: {fileID: 1129943126}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117483910}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ToggleShootStyle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &867138268
 GameObject:
@@ -1866,7 +1890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1145389991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2574,8 +2598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304b2cebd79dab347a5e399030bf30ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootManual: 0
-  shootAutomatic: 1
   rotatePartsSpeed: 100
   playerShieldDuration: 10
   itemSpeed: 1.5
@@ -3513,6 +3535,9 @@ MonoBehaviour:
   panelPause: {fileID: 1145389990}
   panelGame: {fileID: 643891280}
   imageFade: {fileID: 1267020932}
+  shootStyle:
+  - {fileID: 843660062}
+  - {fileID: 16177031}
 --- !u!4 &2117483911
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public TMP_Text txtScore;
     [SerializeField] private GameObject panelPause, panelGame;
     public Image imageFade;
+    public Toggle[] shootStyle;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,26 @@ public class UIController : MonoBehaviour
         txtScore.text = "Score: " + gameController.currentScore.ToString();
     }
 
+    public void ToggleShootStyle()
+    {
+        GameData gameData = FindObjectOfType<GameData>();
+
+        if(shootStyle[0].isOn)
+        {
+            //Manual
+            gameData.shootStyle = false;
+            shootStyle[0].interactable = false;
+            shootStyle[1].interactable = true;
+        }
+        else if(shootStyle[1].isOn)
+        {
+            //Automático
+            gameData.shootStyle = true;
+            shootStyle[0].interactable = true;
+            shootStyle[1].interactable = false;
+        }
+    }
+
     public void ButtonOpenPanelPause()
     {
         panelPause.gameObject.SetActive(true);
@@ -44,6 +65,7 @@ public class UIController : MonoBehaviour
         panelGame.gameObject.SetActive(true);
         GameData gameData = FindObjectOfType<GameData>();
         gameData.SaveSounds(gameData.soundOnOff);
+        ToggleShootStyle();
         Time.timeScale = 1f;
     }
 
