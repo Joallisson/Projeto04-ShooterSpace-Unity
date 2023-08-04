@@ -17,14 +17,36 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameController = FindObjectOfType<GameController>();
-        txtScore.text = "Score: " + gameController.currentScore.ToString();
+        Initialize();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Initialize()
+    {
+        gameController = FindObjectOfType<GameController>();
+        txtScore.text = "Score: " + gameController.currentScore.ToString();
+        GameData gameData = FindObjectOfType<GameData>();
+        bool value = gameData.GetShootStyle();
+
+        if(!value)
+        {
+            shootStyle[0].isOn = true;
+            shootStyle[1].isOn = false;
+            shootStyle[0].interactable = false;
+            shootStyle[1].interactable = true;
+        }
+        else
+        {
+            shootStyle[0].isOn = false;
+            shootStyle[1].isOn = true;
+            shootStyle[0].interactable = true;
+            shootStyle[1].interactable = false;
+        }
     }
 
     public void UpdateScore()
@@ -65,7 +87,7 @@ public class UIController : MonoBehaviour
         panelGame.gameObject.SetActive(true);
         GameData gameData = FindObjectOfType<GameData>();
         gameData.SaveSounds(gameData.soundOnOff);
-        ToggleShootStyle();
+        gameData.SaveShootStyle(gameData.shootStyle);
         Time.timeScale = 1f;
     }
 
