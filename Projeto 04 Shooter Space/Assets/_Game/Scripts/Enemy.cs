@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if(target.gameObject.CompareTag("PlayerProjectile"))
+        if(target.gameObject.CompareTag("PlayerProjectile") && !gameController.gameover)
         {
             health -= target.gameObject.GetComponent<Projectile>().damage;
             flashEffect.Flash();

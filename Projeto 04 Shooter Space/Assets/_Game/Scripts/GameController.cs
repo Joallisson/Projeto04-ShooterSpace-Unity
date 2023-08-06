@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int currentScore;
     [HideInInspector] public bool gameover;
     public Transform allProjectiles, allParts;
+    [SerializeField] private Transform playerStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +89,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGameplay()
     {
+        player.transform.position = playerStartPosition.position;
         gameover = false;
         player.gameObject.SetActive(true);
         player.health = player.maxHealth;
@@ -96,6 +98,16 @@ public class GameController : MonoBehaviour
         uIController.txtScore.text = "Score: " + currentScore.ToString();
         UnityEngine.UI.Image fill = uIController.sliderPlayerHealth.transform.Find("Fill Area").GetComponentInChildren<UnityEngine.UI.Image>();
         fill.color = greenColorHealth;
+
+        foreach(Transform child in allParts.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in allProjectiles.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     public IEnumerator RestartDelay()
